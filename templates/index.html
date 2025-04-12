@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #444;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        /* Контейнер для фильмов */
+        .movie-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Карточка фильма */
+        .movie-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 15px;
+            text-align: left;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px); /* Эффект при наведении */
+        }
+
+        /* Изображение фильма */
+        .movie-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Заголовок фильма */
+        .movie-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #444;
+            margin-top: 15px;
+        }
+
+        /* Год выпуска фильма */
+        .movie-year {
+            font-size: 16px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Описание фильма */
+        .movie-description {
+            font-size: 14px;
+            color: #777;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        /* Дата релиза фильма */
+        .movie-date {
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Welcome to our cinema!</h2>
+
+    <div class="movie-container">
+        {% for q in movie %}
+        <div class="movie-card">
+            <img src="{{ q.image.url }}" alt="{{ q.name }}">
+            <div class="movie-title">{{ q.name }}</div>
+            <div class="movie-year">{{ q.year }}</div>
+            <div class="movie-description">{{ q.description }}</div>
+            <div class="movie-date">Release Date: {{ q.date }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
